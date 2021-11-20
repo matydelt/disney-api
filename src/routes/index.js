@@ -10,5 +10,7 @@ const router = Router();
 
 
 module.exports = {
-    index: router
+    index: router,
+    users: require("./users"),
+    characters: require("./characters")
 };

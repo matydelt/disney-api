@@ -2,7 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const { index } = require('./routes/index.js');
+const { index, users, characters } = require('./routes/index.js');
 
 require('./db.js');
 
@@ -25,6 +25,8 @@ server.use((req, res, next) => {
 });
 
 server.use('/', index);
+server.use('/', users)
+server.use(characters)
 
 
 // Error catching endware.
