@@ -20,6 +20,13 @@ module.exports = (sequelize) => {
         },
         history: {
             type: DataTypes.TEXT,
+        },
+        detail: {
+            type: DataTypes.VIRTUAL,
+            get() {
+                const { image, name, age, weight, history } = this
+                return { image, name, age, weight, history }
+            }
         }
 
     });

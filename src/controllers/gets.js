@@ -4,7 +4,7 @@ const { User, Character } = require("../db")
 async function characters(req, res) {
     try {
         const { token } = req.query
-        const user = User.findOne({ where: { token: token } })
+        const user = await User.findOne({ where: { token: token } })
         if (user) {
             const characters = await Character.findAll({ attributes: ["name", "image"] })
             return res.json(characters)
